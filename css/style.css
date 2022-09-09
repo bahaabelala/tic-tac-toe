@@ -1,0 +1,137 @@
+/* ---------- GENERAL ----------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: 'Gluten', cursive;
+    font-size: 16px;
+    height: 100vh;
+    background-color: #27ae60;
+    perspective: 1000px;
+
+    /* Flex Box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------- ELEMENTS ----------- */
+
+section {
+    width: 500px;
+    height: 500px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    position: relative;
+
+    /* Flex Box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section > div {
+    transform-style: preserve-3d;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    transition: transform 1s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+/* section > div:hover {
+    transform: rotateY(180deg);
+} */
+
+.game,
+.game-backface {
+    width: 100%;
+    height: 100%;
+    background-color: #1f8348;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #1f8348;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.game {
+    opacity: 0;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transition: opacity 0.5s ease;
+
+    /* Flex Box */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-around;
+}
+
+.game-backface {
+    transform: rotateY(180deg);
+    font-size: 2rem;
+    line-height: 150%;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    display: none;
+
+    /* Flex Box */
+    justify-content: center;
+    align-items: center;
+}
+
+.game-backface-displayed {
+    display: flex;
+}
+
+.game__cell {
+    width: 100px;
+    height: 100px;
+    background-color: #27ae60;
+    border: 0.5px solid #1f8348;
+    font-size: 3rem;
+    /*
+    color: rgb(73, 73, 219);
+    color: rgb(219, 73, 73);
+    */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    /* Flex Box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game__cell:hover {
+    background-color: #27d36f;
+}
+
+.game__cell:nth-child(3n) {
+    border-right: none;
+}
+
+.game__cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.game__cell:nth-child(n + 7) {
+    border-bottom: none;
+}
+
+.game__cell:nth-last-child(n + 7) {
+    border-top: none;
+}
+
+@media (max-width: 400px) {
+    section {
+        width: 100vw;
+        border-radius: 0;
+    }
+}
