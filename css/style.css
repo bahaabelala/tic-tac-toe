@@ -37,6 +37,7 @@ section {
 
 section > div {
     transform-style: preserve-3d;
+    backface-visibility: hidden;
     width: 300px;
     height: 300px;
     position: relative;
